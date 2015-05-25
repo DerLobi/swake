@@ -17,12 +17,13 @@ if arguments.count > 1 {
     let skeletonPath = execPath.stringByAppendingPathComponent("Skeleton.swift")
     var swakefilePath = cwd.stringByAppendingPathComponent("Swakefile")
 
+
     // parse arguments
     
     var numberOfArgumentsToSkip = 2 // 0 is the path, 1 is the task
     var shouldListTasks = false
     for i in [1,3] {
-        if i > arguments.count {
+        if i > arguments.count - 1 {
             break;
         }
         let possibleFlag = arguments[i]

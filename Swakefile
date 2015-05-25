@@ -1,0 +1,30 @@
+task("build") { args in
+  if let args = args {
+    var buildDir = "./build"
+
+    println(args)
+    if args.count == 1 {
+      buildDir = args[0]
+    }
+
+    sh("/usr/bin/xcodebuild", arguments: ["BUILD_DIR=\(buildDir)"])
+  }
+}
+
+task("install") { args in
+  tasks["build"]!(["/tmp/swake"])
+
+  let toDir = "/usr/local/bin"
+
+  var error: NSError?
+
+  NSFileManager.defaultManager().copyItemAtPath("/tmp/swake/Release/Skeleton.swift", toPath: toDir, error: &error)
+  NSFileManager.defaultManager().copyItemAtPath("/tmp/swake/Release/swake", toPath: toDir, error: &error)
+
+  if let error = error {
+    println("Error installing in " + toDir)
+    println(error.localizedDescription)
+  } else {
+    println("Successfully built and installed in " + toDir)
+  }
+}

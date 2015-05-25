@@ -7,21 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CAAE27531B13322D007EEBF3 /* Swakefile in CopyFiles */ = {isa = PBXBuildFile; fileRef = CADF86411B13284F0068602D /* Swakefile */; };
+		CA87B9631B1380E600198A02 /* Skeleton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = CADF86421B132A290068602D /* Skeleton.swift */; };
+		CA87B9641B1380E600198A02 /* swake in CopyFiles */ = {isa = PBXBuildFile; fileRef = CADF86371B1328260068602D /* swake */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CAAE27541B133B64007EEBF3 /* Skeleton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = CADF86421B132A290068602D /* Skeleton.swift */; };
+		CAAE275F1B137FBE007EEBF3 /* Swakefile in CopyFiles */ = {isa = PBXBuildFile; fileRef = CAAE275E1B137ED5007EEBF3 /* Swakefile */; };
 		CADF863B1B1328260068602D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF863A1B1328260068602D /* main.swift */; };
 		CADF86431B132A290068602D /* Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF86421B132A290068602D /* Skeleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CA87B9621B1380DE00198A02 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/local/bin;
+			dstSubfolderSpec = 0;
+			files = (
+				CA87B9631B1380E600198A02 /* Skeleton.swift in CopyFiles */,
+				CA87B9641B1380E600198A02 /* swake in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CAAE27511B13317B007EEBF3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				CAAE27531B13322D007EEBF3 /* Swakefile in CopyFiles */,
 				CAAE27541B133B64007EEBF3 /* Skeleton.swift in CopyFiles */,
+				CAAE275F1B137FBE007EEBF3 /* Swakefile in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,9 +50,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CAAE275E1B137ED5007EEBF3 /* Swakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Swakefile; path = Examples/Swakefile; sourceTree = "<group>"; };
 		CADF86371B1328260068602D /* swake */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swake; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADF863A1B1328260068602D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		CADF86411B13284F0068602D /* Swakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swakefile; sourceTree = "<group>"; };
 		CADF86421B132A290068602D /* Skeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skeleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CAAE275D1B137EC9007EEBF3 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				CAAE275E1B137ED5007EEBF3 /* Swakefile */,
+			);
+			name = Examples;
+			sourceTree = "<group>";
+		};
 		CADF862E1B1328260068602D = {
 			isa = PBXGroup;
 			children = (
@@ -73,8 +94,8 @@
 		CADF86391B1328260068602D /* swake */ = {
 			isa = PBXGroup;
 			children = (
+				CAAE275D1B137EC9007EEBF3 /* Examples */,
 				CADF863A1B1328260068602D /* main.swift */,
-				CADF86411B13284F0068602D /* Swakefile */,
 				CADF86421B132A290068602D /* Skeleton.swift */,
 			);
 			path = swake;
@@ -91,6 +112,7 @@
 				CADF86341B1328260068602D /* Frameworks */,
 				CADF86351B1328260068602D /* CopyFiles */,
 				CAAE27511B13317B007EEBF3 /* CopyFiles */,
+				CA87B9621B1380DE00198A02 /* CopyFiles */,
 			);
 			buildRules = (
 			);
