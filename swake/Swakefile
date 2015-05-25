@@ -5,3 +5,41 @@ task("test") { args in
     println("Hello, \(names)")
 }
 
+task("something") { _ in
+    println("something executed")
+}
+
+task("taskExecutingTask") { _ in
+    tasks["something"]!(nil)
+}
+
+task("taskExecutingTaskWithArguments") { args in
+    tasks["something"]!(args)
+}
+
+namespace("myNamespace") { args in
+
+    task("build") { args in
+        println("build executed")
+    }
+
+
+    task("test", ["build"]) { args in
+
+        println("test executed")
+
+    }
+
+}
+
+namespace("otherNamespace") { args in
+
+    task("test") { args in
+
+        println("Hello from other namespaced task, \(args!.first!)")
+
+    }
+
+}
+
+
