@@ -25,16 +25,39 @@ func namespace(name: String, work: () -> Void) {
     currentNamespace = nil
 }
 
-var tasks: [String: TaskClosure ] = Dictionary()
+var tasks: [String: TaskClosure] = Dictionary()
+var prerequisites: [String: [String]] = Dictionary()
 
-func task(name: String, work: TaskClosure) {
+func task(name: String, _ taskPrerequisites: [String]? = nil, work: TaskClosure) {
     
     var key = name
-    if let namespace = currentNamespace {
-        key = namespace + ":" + name
+    var namespace: String?
+    if let currentNamespace = currentNamespace {
+        namespace = currentNamespace
+        key = currentNamespace + ":" + name
     }
     
-    tasks[key] = work
+    if let taskPrerequisites = taskPrerequisites {
+        prerequisites[name] = taskPrerequisites
+        
+        let closureWithDependencies: TaskClosure = { args in
+            
+            for taskName in taskPrerequisites {
+                
+                var taskKey = taskName
+                if let namespace = namespace {
+                    taskKey = namespace + ":" + taskName
+                }
+                
+                tasks[taskKey]!(args)
+            }
+            work(args)
+        }
+        tasks[key] = closureWithDependencies
+    } else {
+        tasks[key] = work
+    }
+    
 }
 
 // Contents of Swakefile:
