@@ -1,0 +1,7 @@
+
+
+task("test") { args in
+    let names = ", ".join(args!)
+    println("Hello, \(names)")
+}
+

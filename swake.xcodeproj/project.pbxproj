@@ -7,10 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAAE27531B13322D007EEBF3 /* Swakefile in CopyFiles */ = {isa = PBXBuildFile; fileRef = CADF86411B13284F0068602D /* Swakefile */; };
+		CAAE27541B133B64007EEBF3 /* Skeleton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = CADF86421B132A290068602D /* Skeleton.swift */; };
 		CADF863B1B1328260068602D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF863A1B1328260068602D /* main.swift */; };
+		CADF86431B132A290068602D /* Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF86421B132A290068602D /* Skeleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CAAE27511B13317B007EEBF3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				CAAE27531B13322D007EEBF3 /* Swakefile in CopyFiles */,
+				CAAE27541B133B64007EEBF3 /* Skeleton.swift in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CADF86351B1328260068602D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -25,6 +39,8 @@
 /* Begin PBXFileReference section */
 		CADF86371B1328260068602D /* swake */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swake; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADF863A1B1328260068602D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		CADF86411B13284F0068602D /* Swakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swakefile; sourceTree = "<group>"; };
+		CADF86421B132A290068602D /* Skeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skeleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				CADF863A1B1328260068602D /* main.swift */,
+				CADF86411B13284F0068602D /* Swakefile */,
+				CADF86421B132A290068602D /* Skeleton.swift */,
 			);
 			path = swake;
 			sourceTree = "<group>";
@@ -72,6 +90,7 @@
 				CADF86331B1328260068602D /* Sources */,
 				CADF86341B1328260068602D /* Frameworks */,
 				CADF86351B1328260068602D /* CopyFiles */,
+				CAAE27511B13317B007EEBF3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -119,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CADF863B1B1328260068602D /* main.swift in Sources */,
+				CADF86431B132A290068602D /* Skeleton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +256,7 @@
 				CADF86401B1328260068602D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
