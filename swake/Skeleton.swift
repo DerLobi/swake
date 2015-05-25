@@ -2,6 +2,8 @@
 // Contents of Skeleton.swift:
 import Foundation
 
+typealias TaskClosure = [String]? -> Void
+
 func sh(command: String, arguments: [String]?) -> Int32 {
     var task = NSTask()
     task.launchPath = command
@@ -15,10 +17,24 @@ func sh(command: String, arguments: [String]?) -> Int32 {
     return task.terminationStatus
 }
 
-var tasks: [String: ([String]? ) -> Void ] = Dictionary()
+var currentNamespace: String? = nil
 
-func task(name: String, work: [String]?  -> Void) {
-    tasks[name] = work
+func namespace(name: String, work: () -> Void) {
+    currentNamespace = name
+    work()
+    currentNamespace = nil
+}
+
+var tasks: [String: TaskClosure ] = Dictionary()
+
+func task(name: String, work: TaskClosure) {
+    
+    var key = name
+    if let namespace = currentNamespace {
+        key = namespace + ":" + name
+    }
+    
+    tasks[key] = work
 }
 
 // Contents of Swakefile:
