@@ -60,11 +60,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "test"
-            isEnabled = "YES">
+            argument = "myNamespace:test"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "Lobi"
+            argument = "fail"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

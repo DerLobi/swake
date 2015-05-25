@@ -4,10 +4,15 @@ import Cocoa
 
 typealias TaskClosure = [String]? -> Void
 
-func sh(command: String, arguments: [String]?) -> Int32 {
+func sh(command: String, arguments: [String]? = nil) -> Int32 {
     var task = NSTask()
-    task.launchPath = command
-
+    
+    if !NSFileManager.defaultManager().fileExistsAtPath(command) {
+        return 1
+    }
+    
+    task.launchPath = command    
+    
     if let arguments = arguments  {
         task.arguments = arguments.map({ $0 as AnyObject})
     }

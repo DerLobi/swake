@@ -17,6 +17,11 @@ task("taskExecutingTaskWithArguments") { args in
     tasks["something"]!(args)
 }
 
+task("fail") { _ in
+    let status = sh("nonexistant")
+    exit(status)
+}
+
 namespace("myNamespace") { args in
 
     task("build") { args in
@@ -29,7 +34,6 @@ namespace("myNamespace") { args in
         println("test executed")
 
     }
-
 }
 
 namespace("otherNamespace") { args in
