@@ -1,43 +1,58 @@
+// This is an example for the kind of things that are already possible with swake
 
-
+// a simple task, call it with swake test in the directory of your Swakefile
 task("test") { args in
     let names = ", ".join(args!)
     println("Hello, \(names)")
 }
 
+// right now you still have to include arguments in the closure, even if you don't supply any
 task("something") { _ in
     println("something executed")
 }
 
+// you can execute other tasks from a task like this:
 task("taskExecutingTask") { _ in
     tasks["something"]!(nil)
 }
 
+// you can also supply arguments to other tasks
 task("taskExecutingTaskWithArguments") { args in
     tasks["something"]!(args)
 }
 
+// sh() runs a terminal command and returns the exit code
 task("fail") { _ in
     let status = sh("nonexistant")
     exit(status)
 }
 
+// you can define swift functions to call from tasks
+func myHelper() -> String {
+    return "42"
+}
+
+// ... as long as the function is defined before its execution
+task("callAFunction") { _ in
+    println(myHelper())
+}
+
+// you can use namespaces
 namespace("myNamespace") { args in
 
     task("build") { args in
         println("build executed")
     }
 
-
+    // ...and prerequisites. myNamespace:build will be executed before myNamespace:test
     task("test", ["build"]) { args in
-
         println("test executed")
-
     }
 }
 
 namespace("otherNamespace") { args in
 
+    // execute this task by running `swake otherNamespace:test`
     task("test") { args in
 
         println("Hello from other namespaced task, \(args!.first!)")
@@ -45,5 +60,4 @@ namespace("otherNamespace") { args in
     }
 
 }
-
 
