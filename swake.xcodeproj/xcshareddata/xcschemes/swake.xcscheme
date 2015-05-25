@@ -64,8 +64,20 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "callAFunction"
+            argument = "-f &quot;/Users/Lobi/Desktop/Swakefile&quot; -t"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--help"
             isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--tasks"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "callAFunction"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "fail"
