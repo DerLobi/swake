@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA87B9631B1380E600198A02 /* Skeleton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = CADF86421B132A290068602D /* Skeleton.swift */; };
+		AA5DF60D1B150AF600B762A1 /* EmbeddedResources.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5DF60C1B150AF600B762A1 /* EmbeddedResources.m */; };
 		CA87B9641B1380E600198A02 /* swake in CopyFiles */ = {isa = PBXBuildFile; fileRef = CADF86371B1328260068602D /* swake */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		CAAE27541B133B64007EEBF3 /* Skeleton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = CADF86421B132A290068602D /* Skeleton.swift */; };
 		CAAE275F1B137FBE007EEBF3 /* Swakefile in CopyFiles */ = {isa = PBXBuildFile; fileRef = CAAE275E1B137ED5007EEBF3 /* Swakefile */; };
 		CADF863B1B1328260068602D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF863A1B1328260068602D /* main.swift */; };
 		CADF86431B132A290068602D /* Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF86421B132A290068602D /* Skeleton.swift */; };
@@ -22,7 +21,6 @@
 			dstPath = /usr/local/bin;
 			dstSubfolderSpec = 0;
 			files = (
-				CA87B9631B1380E600198A02 /* Skeleton.swift in CopyFiles */,
 				CA87B9641B1380E600198A02 /* swake in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -33,7 +31,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				CAAE27541B133B64007EEBF3 /* Skeleton.swift in CopyFiles */,
 				CAAE275F1B137FBE007EEBF3 /* Swakefile in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,6 +47,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA5DF6071B15080300B762A1 /* swake-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swake-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA5DF60B1B150AF600B762A1 /* EmbeddedResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmbeddedResources.h; sourceTree = "<group>"; };
+		AA5DF60C1B150AF600B762A1 /* EmbeddedResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmbeddedResources.m; sourceTree = "<group>"; };
 		CAAE275E1B137ED5007EEBF3 /* Swakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Swakefile; path = Examples/Swakefile; sourceTree = "<group>"; };
 		CADF86371B1328260068602D /* swake */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swake; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADF863A1B1328260068602D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -94,9 +94,12 @@
 		CADF86391B1328260068602D /* swake */ = {
 			isa = PBXGroup;
 			children = (
+				AA5DF60B1B150AF600B762A1 /* EmbeddedResources.h */,
+				AA5DF60C1B150AF600B762A1 /* EmbeddedResources.m */,
 				CAAE275D1B137EC9007EEBF3 /* Examples */,
 				CADF863A1B1328260068602D /* main.swift */,
 				CADF86421B132A290068602D /* Skeleton.swift */,
+				AA5DF6071B15080300B762A1 /* swake-Bridging-Header.h */,
 			);
 			path = swake;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			files = (
 				CADF863B1B1328260068602D /* main.swift in Sources */,
 				CADF86431B132A290068602D /* Skeleton.swift in Sources */,
+				AA5DF60D1B150AF600B762A1 /* EmbeddedResources.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,14 +252,33 @@
 		CADF863F1B1328260068602D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+                OTHER_LDFLAGS = (
+                    "-sectcreate",
+                    __TEXT,
+                    skeleton,
+                    "$(PROJECT_DIR)/swake/Skeleton.swift",
+                );
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swake/swake-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		CADF86401B1328260068602D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					skeleton,
+					"$(PROJECT_DIR)/swake/Skeleton.swift",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swake/swake-Bridging-Header.h";
 			};
 			name = Release;
 		};
