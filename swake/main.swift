@@ -50,7 +50,8 @@ if arguments.count > 1 {
    
     }
 
-    let skeleton = NSString(contentsOfFile: skeletonPath, encoding: NSUTF8StringEncoding, error: nil)
+    let skeletonData = MSEmbeddedResourceDataWithName("skeleton")
+    let skeleton = NSString(data: skeletonData, encoding: NSUTF8StringEncoding)
     var swakefile = NSString(contentsOfFile: swakefilePath, encoding: NSUTF8StringEncoding, error: nil)
 
     // hand the rest of the arguments over to the task

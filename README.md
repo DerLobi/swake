@@ -8,7 +8,7 @@ It is written in Swift, the `Swakefile`s are written in Swift, and you can use e
 :warning: This is alpha quality software (I hacked this together in a day). It is not as complete as other tools, missing tests, documentation, edge-case handling and the API is subject to change. So use at your own risk!
 
 ## Installation
-Right now, you have to clone the repo, build it in Xcode, then copy the `swake` executable and `Skeleton.swift` to some folder in your `$PATH`. I'll look into homebrew to make the installation easier.
+Right now, you have to clone the repo, build it in Xcode and the `swake` executable gets automatically copied to `/usr/local/bin`. I'll look into homebrew to make the installation easier.
 For myself I added a Swakefile to build and install swake (woah - SWAKECEPTION).
 
 ## Swakefile
